@@ -27,7 +27,8 @@ def get_commands():
     for file in os.listdir(commands_location):
         name = os.fsdecode(file)
         if(name.endswith('.py')):
-            mod = SourceFileLoader(file, commands_location+file).load_module()
+            location = os.path.join(commands_location, file)
+            mod = SourceFileLoader(file.split('.py')[0].lower(), location).load_module()
             commands[name.split('.py')[0].lower()] = mod
 
 # Calls the command
