@@ -4,7 +4,7 @@ __data__ = os.getcwd() + '/__data__/places.json'
 def run(args):
     args = str(args).lower()
     data = json.ReadFile(__data__)
-    filtered = list(filter(lambda key: key.startswith(args) or data[key]['shortcase'].startswith(args.replace(" ", "")), data.keys()))
+    filtered = list(filter(lambda key: key.startswith(args) or data[key]['shorthand'].startswith(args.replace(" ", "")), data.keys()))
     
     found = []
     for x in filtered:
